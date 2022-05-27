@@ -1,6 +1,7 @@
 package com.example.ZTP_PROJ6.beans;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity(name="Recipes")
 
@@ -33,8 +34,27 @@ public class Recipe {
 
     )
     private Integer level;
+
+    @ManyToOne(cascade={CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name="user_id")
+    private User user;
+
+    public Recipe() {
+
+    }
+
+
     //private String photo_Id;
 
+
+    public Recipe(String id, String name, String description, String ingredients, Integer level, User user) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.ingredients = ingredients;
+        this.level = level;
+        this.user = user;
+    }
 
     public String getId() {
         return id;
@@ -57,6 +77,14 @@ public class Recipe {
     }
 
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -77,6 +105,10 @@ public class Recipe {
         this.level = level;
     }
 
+    public static String idCreator() {
+        String uniqueID = UUID.randomUUID().toString();
+        return uniqueID;
+    }
 
     @Override
     public String toString() {
@@ -86,6 +118,7 @@ public class Recipe {
                 ", description='" + description + '\'' +
                 ", ingredients='" + ingredients + '\'' +
                 ", level=" + level +
+                ", user=" + user +
                 '}';
     }
 }

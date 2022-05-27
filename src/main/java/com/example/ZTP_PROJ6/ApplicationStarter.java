@@ -4,10 +4,12 @@ import com.example.ZTP_PROJ6.beans.Recipe;
 import com.example.ZTP_PROJ6.beans.Role;
 import com.example.ZTP_PROJ6.beans.User;
 import com.example.ZTP_PROJ6.repositorys.RecipeRepository;
+import com.example.ZTP_PROJ6.repositorys.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @SpringBootApplication
 public class ApplicationStarter {
@@ -19,10 +21,12 @@ public class ApplicationStarter {
 		System.out.println("ApplicationStarter has started");
 	}
 	@Bean
-	CommandLineRunner commandLineRunner(RecipeRepository recipeRepository) {
+	CommandLineRunner commandLineRunner(RecipeRepository recipeRepository, UserRepository userRepository) {
 		return args -> {
-			Recipe pizza = new Recipe(User.idCreator(), "JA1", "ma33333", Role.USER);
-			userRepository.save(maria);
+			String auth = "Test111";
+			User user = userRepository.findAllByLogin(auth);
+			Recipe pizza = new Recipe(Recipe.idCreator(), "PIZZA", "Salami", "salami, cheese", 4, user );
+			recipeRepository.save(pizza);
 		};
 	}
 }
