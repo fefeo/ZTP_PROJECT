@@ -1,10 +1,9 @@
-package com.example.ZTP_PROJ3;
+package com.example.ZTP_PROJ6;
 
-import com.example.ZTP_PROJ3.beans.Recipe;
-import com.example.ZTP_PROJ3.beans.Role;
-import com.example.ZTP_PROJ3.beans.User;
-import com.example.ZTP_PROJ3.repositorys.RecipeRepository;
-import com.example.ZTP_PROJ3.repositorys.UserRepository;
+import com.example.ZTP_PROJ6.beans.Recipe;
+import com.example.ZTP_PROJ6.beans.Role;
+import com.example.ZTP_PROJ6.beans.User;
+import com.example.ZTP_PROJ6.repositorys.RecipeRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

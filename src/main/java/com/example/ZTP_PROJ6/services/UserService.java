@@ -1,12 +1,9 @@
-package com.example.ZTP_PROJ3.services;
+package com.example.ZTP_PROJ6.services;
 
-import com.example.ZTP_PROJ3.beans.Book;
-import com.example.ZTP_PROJ3.beans.Role;
-import com.example.ZTP_PROJ3.beans.User;
-import com.example.ZTP_PROJ3.exceptions.NotFoundException;
-import com.example.ZTP_PROJ3.repositorys.UserRepository;
+import com.example.ZTP_PROJ6.beans.Role;
+import com.example.ZTP_PROJ6.beans.User;
+import com.example.ZTP_PROJ6.repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;

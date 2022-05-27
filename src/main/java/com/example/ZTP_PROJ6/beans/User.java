@@ -1,10 +1,7 @@
-package com.example.ZTP_PROJ3.beans;
+package com.example.ZTP_PROJ6.beans;
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
-import com.example.ZTP_PROJ3.beans.Role;
-
-import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity(name = "Users")
 @Table(name = "\"Users\"")

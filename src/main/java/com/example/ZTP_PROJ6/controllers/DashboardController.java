@@ -1,22 +1,18 @@
-package com.example.ZTP_PROJ3.controllers;
+package com.example.ZTP_PROJ6.controllers;
 
 
-import com.example.ZTP_PROJ3.beans.Book;
-import com.example.ZTP_PROJ3.beans.User;
-import com.example.ZTP_PROJ3.exceptions.NotFoundException;
-import com.example.ZTP_PROJ3.repositorys.RecipeRepository;
-import com.example.ZTP_PROJ3.repositorys.UserRepository;
-import com.example.ZTP_PROJ3.requests.CreateBookRequest;
-import com.example.ZTP_PROJ3.requests.UserRequest;
-import com.example.ZTP_PROJ3.services.DashboardService;
-import com.example.ZTP_PROJ3.services.UserService;
+import com.example.ZTP_PROJ6.beans.Book;
+import com.example.ZTP_PROJ6.beans.User;
+import com.example.ZTP_PROJ6.exceptions.NotFoundException;
+import com.example.ZTP_PROJ6.repositorys.RecipeRepository;
+import com.example.ZTP_PROJ6.repositorys.UserRepository;
+import com.example.ZTP_PROJ6.requests.CreateBookRequest;
+import com.example.ZTP_PROJ6.requests.UserRequest;
+import com.example.ZTP_PROJ6.services.DashboardService;
+import com.example.ZTP_PROJ6.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 
 @RestController

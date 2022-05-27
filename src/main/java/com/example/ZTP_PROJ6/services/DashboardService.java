@@ -1,14 +1,10 @@
-package com.example.ZTP_PROJ3.services;
+package com.example.ZTP_PROJ6.services;
 
-import com.example.ZTP_PROJ3.beans.User;
-import com.example.ZTP_PROJ3.exceptions.NotFoundException;
-import com.example.ZTP_PROJ3.repositorys.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.ZTP_PROJ6.exceptions.NotFoundException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import com.example.ZTP_PROJ3.beans.Book;
+import com.example.ZTP_PROJ6.beans.Book;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 

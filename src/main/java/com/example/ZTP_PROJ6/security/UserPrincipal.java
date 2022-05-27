@@ -1,6 +1,6 @@
-package com.example.ZTP_PROJ3.security;
+package com.example.ZTP_PROJ6.security;
 
-import com.example.ZTP_PROJ3.beans.User;
+import com.example.ZTP_PROJ6.beans.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

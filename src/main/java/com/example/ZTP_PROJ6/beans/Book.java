@@ -1,6 +1,5 @@
-package com.example.ZTP_PROJ3.beans;
+package com.example.ZTP_PROJ6.beans;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 

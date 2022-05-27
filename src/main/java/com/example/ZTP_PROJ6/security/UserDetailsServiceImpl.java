@@ -1,8 +1,7 @@
-package com.example.ZTP_PROJ3.security;
+package com.example.ZTP_PROJ6.security;
 
-import com.example.ZTP_PROJ3.beans.User;
-import com.example.ZTP_PROJ3.exceptions.NotFoundException;
-import com.example.ZTP_PROJ3.services.UserService;
+import com.example.ZTP_PROJ6.beans.User;
+import com.example.ZTP_PROJ6.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

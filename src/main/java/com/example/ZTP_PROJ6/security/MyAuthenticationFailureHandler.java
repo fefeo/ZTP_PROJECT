@@ -1,4 +1,4 @@
-package com.example.ZTP_PROJ3.security;
+package com.example.ZTP_PROJ6.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;

@@ -1,6 +1,4 @@
-package com.example.ZTP_PROJ3.requests;
-
-import com.example.ZTP_PROJ3.beans.User;
+package com.example.ZTP_PROJ6.requests;
 
 public class UserRequest {
     private String username;

@@ -1,4 +1,4 @@
-package com.example.ZTP_PROJ3.requests;
+package com.example.ZTP_PROJ6.requests;
 
 public class CreateBookRequest {
     private String title;

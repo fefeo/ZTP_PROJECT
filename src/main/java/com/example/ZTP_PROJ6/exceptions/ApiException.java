@@ -1,4 +1,4 @@
-package com.example.ZTP_PROJ3.exceptions;
+package com.example.ZTP_PROJ6.exceptions;
 
 import org.springframework.http.HttpStatus;
 
