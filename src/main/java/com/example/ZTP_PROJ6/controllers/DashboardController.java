@@ -31,14 +31,16 @@ public class DashboardController {
     public DashboardController(DashboardService dashboardService) {
         this.dashboardService = dashboardService;
     }
-    @PostMapping("/createNewUser")
-    public User addUser(@RequestBody UserRequest request) {
-         return userService.addUser(request.getUsername(), request.getPassword());
-    }
-    @GetMapping("/allUsers")
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
-    }
+
+
+//    @PostMapping("/createNewUser")
+//    public List<User> addUser(@RequestBody UserRequest request) {
+//         return userService.addUser(request.getUsername(), request.getPassword());
+//    }
+//    @GetMapping("/allUsers")
+//    public List<User> findAllUsers() {
+//        return userRepository.findAll();
+//    }
 
 //    @RequestMapping(value = "/username", method = RequestMethod.GET)
 //    @ResponseBody
@@ -51,10 +53,6 @@ public class DashboardController {
         return dashboardService.getAllBooks();
     }
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public List<User> getAllUseres(){
-        return userService.getAllUseres();
-    }
 
     @RequestMapping (method = RequestMethod.POST)
     public List<Book> addNewBook(@RequestBody CreateBookRequest createBookRequest){

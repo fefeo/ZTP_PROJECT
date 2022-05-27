@@ -1,7 +1,9 @@
 package com.example.ZTP_PROJ6.services;
 
+import com.example.ZTP_PROJ6.beans.Book;
 import com.example.ZTP_PROJ6.beans.Role;
 import com.example.ZTP_PROJ6.beans.User;
+import com.example.ZTP_PROJ6.exceptions.NotFoundException;
 import com.example.ZTP_PROJ6.repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +30,18 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User addUser(String username, String password) {
-        return userRepository.save(new User(User.idCreator(), username, password, Role.USER));
+    public List<User> addUser(String username, String password) {
+        userRepository.save(new User(User.idCreator(), username, password, Role.USER));
+        return userRepository.findAll();
+    }
+
+    public List<User> deleteUserById(String id) throws NotFoundException {
+        try {
+            userRepository.deleteById(id);
+            return userRepository.findAll();
+        } catch (NotFoundException e) {
+            throw new NotFoundException("User not found!");
+        }
     }
 
     public User getUserByLogin(String login) {
