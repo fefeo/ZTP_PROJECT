@@ -16,6 +16,7 @@ public class User {
     @Column(
             name="login",
             nullable = false,
+            unique = true,
             columnDefinition = "text",
             length = 1200
     )

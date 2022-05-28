@@ -8,6 +8,7 @@ import com.example.ZTP_PROJ6.exceptions.NotFoundException;
 import com.example.ZTP_PROJ6.repositorys.RecipeRepository;
 import com.example.ZTP_PROJ6.repositorys.UserRepository;
 import com.example.ZTP_PROJ6.requests.CreateBookRequest;
+import com.example.ZTP_PROJ6.requests.RecipeRequest;
 import com.example.ZTP_PROJ6.requests.UserRequest;
 import com.example.ZTP_PROJ6.services.DashboardService;
 import com.example.ZTP_PROJ6.services.UserService;
@@ -48,29 +49,36 @@ public class DashboardController {
 //    public String currentUserName(Principal principal) {
 //        return principal.getName();
 //    }
+    @GetMapping
+    public List<Recipe> getAllRecipes() {return dashboardService.getAllRecipes(); }
 
     @GetMapping("/all")
     public List<Recipe> getAllUsersRecipes(){
         return dashboardService.getAllUsersRecipes();
     }
 
+
+    @PostMapping
+    public List<Recipe> addRecipe(@RequestBody RecipeRequest request) {
+        return dashboardService.addRecipe(request.getName(), request.getDescription(), request.getIngredients(), request.getLevel());
+    }
 //    @RequestMapping(method = RequestMethod.GET)
 //    public List<Book> getBooks(){
 //        return dashboardService.getAllBooks();
 //    }
 
 
-    @RequestMapping (method = RequestMethod.POST)
-    public List<Book> addNewBook(@RequestBody CreateBookRequest createBookRequest){
-        return dashboardService.addBook( createBookRequest.getTitle(), createBookRequest.getAuthor(), createBookRequest.getYear());
-    }
-    @RequestMapping (value = "/{bookId}", method = RequestMethod.DELETE)
-    public List<Book> deleteBook(@PathVariable String bookId) throws NotFoundException {
-        return dashboardService.deleteBookById(bookId);
-    }
-
-    @RequestMapping (value = "/{bookId}", method = RequestMethod.GET)
-    public Book getBookById(@PathVariable String bookId) throws NotFoundException {
-        return dashboardService.getBookById(bookId);
-    }
+//    @RequestMapping (method = RequestMethod.POST)
+//    public List<Book> addNewBook(@RequestBody CreateBookRequest createBookRequest){
+//        return dashboardService.addBook( createBookRequest.getTitle(), createBookRequest.getAuthor(), createBookRequest.getYear());
+//    }
+//    @RequestMapping (value = "/{bookId}", method = RequestMethod.DELETE)
+//    public List<Book> deleteBook(@PathVariable String bookId) throws NotFoundException {
+//        return dashboardService.deleteBookById(bookId);
+//    }
+//
+//    @RequestMapping (value = "/{bookId}", method = RequestMethod.GET)
+//    public Book getBookById(@PathVariable String bookId) throws NotFoundException {
+//        return dashboardService.getBookById(bookId);
+//    }
 }

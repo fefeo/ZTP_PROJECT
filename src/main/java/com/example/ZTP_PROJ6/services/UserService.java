@@ -3,6 +3,7 @@ package com.example.ZTP_PROJ6.services;
 import com.example.ZTP_PROJ6.beans.Book;
 import com.example.ZTP_PROJ6.beans.Role;
 import com.example.ZTP_PROJ6.beans.User;
+import com.example.ZTP_PROJ6.exceptions.ForbiddenException;
 import com.example.ZTP_PROJ6.exceptions.NotFoundException;
 import com.example.ZTP_PROJ6.repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,11 @@ public class UserService {
     }
 
     public List<User> addUser(String username, String password) {
-        userRepository.save(new User(User.idCreator(), username, password, Role.USER));
-        return userRepository.findAll();
+        if(userRepository.existsByLogin(username) == null) {
+            userRepository.save(new User(User.idCreator(), username, password, Role.USER));
+            return userRepository.findAll();
+        }
+        throw new ForbiddenException("User with this login alredy exists!");
     }
     public List<User> deleteUserById(String id) throws NotFoundException {
             if(userRepository.existsById(id)) {
@@ -45,12 +49,10 @@ public class UserService {
     }
 
     public User getUserByLogin(String login) {
-        if (Users.get(login) == null) {
+        if (userRepository.findAllByLogin(login) == null) {
             return null;
-        } else if ("admin".equals(login)) {
-            return new User(User.idCreator(), login, Users.get(login), Role.ADMIN);
         } else {
-            return new User(User.idCreator(), login, Users.get(login), Role.USER);
+            return userRepository.findAllByLogin(login);
         }
     }
 }
