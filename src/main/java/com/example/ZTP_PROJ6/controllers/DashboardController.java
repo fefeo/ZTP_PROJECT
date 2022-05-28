@@ -2,6 +2,7 @@ package com.example.ZTP_PROJ6.controllers;
 
 
 import com.example.ZTP_PROJ6.beans.Book;
+import com.example.ZTP_PROJ6.beans.Recipe;
 import com.example.ZTP_PROJ6.beans.User;
 import com.example.ZTP_PROJ6.exceptions.NotFoundException;
 import com.example.ZTP_PROJ6.repositorys.RecipeRepository;
@@ -48,10 +49,15 @@ public class DashboardController {
 //        return principal.getName();
 //    }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Book> getBooks(){
-        return dashboardService.getAllBooks();
+    @GetMapping("/all")
+    public List<Recipe> getAllUsersRecipes(){
+        return dashboardService.getAllUsersRecipes();
     }
+
+//    @RequestMapping(method = RequestMethod.GET)
+//    public List<Book> getBooks(){
+//        return dashboardService.getAllBooks();
+//    }
 
 
     @RequestMapping (method = RequestMethod.POST)

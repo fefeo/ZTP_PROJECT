@@ -23,10 +23,11 @@ public class ApplicationStarter {
 	@Bean
 	CommandLineRunner commandLineRunner(RecipeRepository recipeRepository, UserRepository userRepository) {
 		return args -> {
-			String auth = "Test111";
+			String auth = "admin";
 			User user = userRepository.findAllByLogin(auth);
-			Recipe pizza = new Recipe(Recipe.idCreator(), "PIZZA", "Salami", "salami, cheese", 4, user );
+			Recipe pizza = new Recipe(Recipe.idCreator(), "SPA", "Salami", "salami, cheese", 4, user );
 			recipeRepository.save(pizza);
+
 		};
 	}
 }

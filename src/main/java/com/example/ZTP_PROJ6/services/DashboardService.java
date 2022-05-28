@@ -1,6 +1,11 @@
 package com.example.ZTP_PROJ6.services;
 
+import com.example.ZTP_PROJ6.beans.Recipe;
+import com.example.ZTP_PROJ6.beans.User;
 import com.example.ZTP_PROJ6.exceptions.NotFoundException;
+import com.example.ZTP_PROJ6.repositorys.RecipeRepository;
+import com.example.ZTP_PROJ6.repositorys.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import com.example.ZTP_PROJ6.beans.Book;
@@ -12,7 +17,12 @@ import java.util.List;
 @Service
 public class DashboardService {
     private Book Book;
+    private User user;
     private List<Book> Books = new ArrayList<>();
+    @Autowired
+    RecipeRepository recipeRepository;
+    @Autowired
+    UserRepository userRepository;
 
 
      public DashboardService(){
@@ -25,6 +35,12 @@ public class DashboardService {
         Object auth = SecurityContextHolder.getContext().getAuthentication().getName();
         System.out.println(auth);
          return Books;
+    }
+
+    public List<Recipe> getAllUsersRecipes() {
+//        String auth = SecurityContextHolder.getContext().getAuthentication().getName();
+          //User user = userRepository.getById("7c70e9e4-5007-463b-9cde-35d24bcd3f6b");
+        return recipeRepository.findAllByUser_Id("7c70e9e4-5007-463b-9cde-35d24bcd3f6b");
     }
 
 

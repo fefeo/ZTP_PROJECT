@@ -10,6 +10,7 @@ import com.example.ZTP_PROJ6.requests.CreateBookRequest;
 import com.example.ZTP_PROJ6.requests.UserRequest;
 import com.example.ZTP_PROJ6.services.DashboardService;
 import com.example.ZTP_PROJ6.services.UserService;
+import org.hibernate.annotations.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,10 +38,11 @@ public class UserDashboardController {
         return userService.addUser(request.getUsername(), request.getPassword());
     }
 
-    @GetMapping("/allUsers")
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
+    @RequestMapping(method = RequestMethod.GET)
+    public List<User> getAllUsers() {
+        return userService.getAllUseres();
     }
+
 
     @RequestMapping (value = "/{userId}", method = RequestMethod.DELETE)
     public List<User> deleteUser(@PathVariable String userId) throws NotFoundException {

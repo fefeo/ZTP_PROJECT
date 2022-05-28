@@ -7,6 +7,8 @@ import com.example.ZTP_PROJ6.exceptions.NotFoundException;
 import com.example.ZTP_PROJ6.repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -34,14 +36,12 @@ public class UserService {
         userRepository.save(new User(User.idCreator(), username, password, Role.USER));
         return userRepository.findAll();
     }
-
     public List<User> deleteUserById(String id) throws NotFoundException {
-        try {
-            userRepository.deleteById(id);
-            return userRepository.findAll();
-        } catch (NotFoundException e) {
-            throw new NotFoundException("User not found!");
-        }
+            if(userRepository.existsById(id)) {
+                userRepository.deleteById(id);
+                return userRepository.findAll();
+            }
+                throw new NotFoundException("User not found!");
     }
 
     public User getUserByLogin(String login) {
