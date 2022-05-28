@@ -16,10 +16,10 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 public class CustomSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
-    @Autowired
-    MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;
-    @Autowired
-    MyAuthenticationFailureHandler myAuthenticationFailureHandler;
+//    @Autowired
+//    MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;
+//    @Autowired
+//    MyAuthenticationFailureHandler myAuthenticationFailureHandler;
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) {
@@ -32,32 +32,15 @@ public class CustomSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().httpBasic()
                 .and().cors().disable()
                 .csrf().disable();
-        http.authorizeHttpRequests().antMatchers(HttpMethod.POST, "/dashboard").hasRole("ADMIN")
+        http.authorizeHttpRequests().antMatchers(HttpMethod.POST, "/dashboard").hasAnyRole("ADMIN", "USER")
                 .and().httpBasic()
                 .and().cors().disable()
                 .csrf().disable();
-        http.authorizeHttpRequests().antMatchers(HttpMethod.DELETE, "/dashboard/**").hasRole("ADMIN")
+        http.authorizeHttpRequests().antMatchers(HttpMethod.DELETE, "/dashboard/**").hasAnyRole("ADMIN", "USER")
                 .and().httpBasic()
                 .and().cors().disable()
                 .csrf().disable();
     }
-//        http
-//                .authorizeRequests()
-//                .antMatchers(HttpMethod.POST, "/login").hasAnyRole("USER", "ADMIN")
-//                .antMatchers(HttpMethod.POST, "/dashboard").hasRole("ADMIN")
-//                .antMatchers(HttpMethod.GET, "/dashboard").hasAnyRole("USER", "ADMIN")
-//                .antMatchers(HttpMethod.DELETE, "/dashboard/**").hasRole("ADMIN")
-//                .and().httpBasic()
-//                .and().cors().disable()
-//                .csrf().disable()
-//                .formLogin().successHandler(myAuthenticationSuccessHandler)
-//                .failureHandler(myAuthenticationFailureHandler).loginProcessingUrl("/login").loginPage("/index").permitAll()
-//                .and()
-//                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/index?logout").deleteCookies("remember-me").permitAll()
-//                .and()
-//                .rememberMe();
-//    }
-
 
     @Bean
     public DaoAuthenticationProvider authProvider() {
