@@ -4,6 +4,7 @@ package com.example.ZTP_PROJ6.beans;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.UUID;
 
 @Entity(name="Photos")
 public class Photo {
@@ -42,5 +43,9 @@ public class Photo {
 
     public String getUrl() {
         return url;
+    }
+    public static String idCreator() {
+        String uniqueID = UUID.randomUUID().toString();
+        return uniqueID;
     }
 }

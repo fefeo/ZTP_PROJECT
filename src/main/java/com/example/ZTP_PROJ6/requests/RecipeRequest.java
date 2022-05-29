@@ -6,12 +6,14 @@ public class RecipeRequest {
     private String description;
     private String ingredients;
     private Integer level;
+    private String photo_url;
 
-    public RecipeRequest(String name, String description, String ingredients, Integer level) {
+    public RecipeRequest(String name, String description, String ingredients, Integer level, String url) {
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;
         this.level = level;
+        this.photo_url = photo_url;
     }
 
     public String getName() {
@@ -28,6 +30,14 @@ public class RecipeRequest {
 
     public Integer getLevel() {
         return level;
+    }
+
+    public String getPhoto_url() {
+        return photo_url;
+    }
+
+    public void setPhoto_url(String photo_url) {
+        this.photo_url = photo_url;
     }
 
     public void setName(String name) {

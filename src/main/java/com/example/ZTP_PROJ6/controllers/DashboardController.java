@@ -36,7 +36,7 @@ public class DashboardController {
 
     @PostMapping
     public List<Recipe> addRecipe(@RequestBody RecipeRequest request) {
-        return dashboardService.addRecipe(request.getName(), request.getDescription(), request.getIngredients(), request.getLevel());
+        return dashboardService.addRecipe(request.getName(), request.getDescription(), request.getIngredients(), request.getLevel(), request.getPhoto_url());
     }
 
     @RequestMapping (value = "/{recipeId}", method = RequestMethod.DELETE)

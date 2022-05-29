@@ -20,11 +20,11 @@ public class ApplicationStarter {
 		SpringApplication.run(ApplicationStarter.class, args);
 		System.out.println("ApplicationStarter has started");
 	}
-	@Bean
-	CommandLineRunner commandLineRunner(RecipeRepository recipeRepository, UserRepository userRepository) {
-		return args -> {
-			userRepository.save( new User(User.idCreator(), "admin", "admin123", Role.ADMIN));
-
-		};
-	}
+//	@Bean
+//	CommandLineRunner commandLineRunner(RecipeRepository recipeRepository, UserRepository userRepository) {
+//		return args -> {
+//			userRepository.save( new User(User.idCreator(), "admin", "admin123", Role.ADMIN));
+//
+//		};
+//	}
 }

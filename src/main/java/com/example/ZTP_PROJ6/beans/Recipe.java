@@ -41,6 +41,10 @@ public class Recipe {
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="photo_id", referencedColumnName = "id")
+    private Photo photo;
+
 
 
     public Recipe() {
@@ -51,13 +55,14 @@ public class Recipe {
     //private String photo_Id;
 
 
-    public Recipe(String id, String name, String description, String ingredients, Integer level, User user) {
+    public Recipe(String id, String name, String description, String ingredients, Integer level, User user, Photo photo) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;
         this.level = level;
         this.user = user;
+        this.photo = photo;
     }
 
     public String getId() {
@@ -114,6 +119,14 @@ public class Recipe {
         return uniqueID;
     }
 
+    public Photo getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Photo photo) {
+        this.photo = photo;
+    }
+
     @Override
     public String toString() {
         return "Recipe{" +
@@ -123,6 +136,7 @@ public class Recipe {
                 ", ingredients='" + ingredients + '\'' +
                 ", level=" + level +
                 ", user=" + user +
+                ", photo=" + photo +
                 '}';
     }
 }
