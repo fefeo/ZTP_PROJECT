@@ -29,7 +29,7 @@ public class UserDashboardController {
 
 
     @PostMapping("/createNewUser")
-    public List<User> addUser(@RequestBody UserRequest request) {
+    public User addUser(@RequestBody UserRequest request) {
         return userService.addUser(request.getUsername(), request.getPassword());
     }
 

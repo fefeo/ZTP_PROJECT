@@ -28,7 +28,11 @@ public class CustomSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests().antMatchers(HttpMethod.GET, "/dashboard/**").hasAnyRole("USER", "ADMIN")
+        http.authorizeHttpRequests().antMatchers(HttpMethod.GET, "/dashboard/all").permitAll()
+                .and().httpBasic()
+                .and().cors().disable()
+                .csrf().disable();
+        http.authorizeHttpRequests().antMatchers(HttpMethod.GET, "/dashboard/user").hasAnyRole("USER", "ADMIN")
                 .and().httpBasic()
                 .and().cors().disable()
                 .csrf().disable();
@@ -36,7 +40,23 @@ public class CustomSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().httpBasic()
                 .and().cors().disable()
                 .csrf().disable();
-        http.authorizeHttpRequests().antMatchers(HttpMethod.DELETE, "/dashboard/**").hasAnyRole("ADMIN", "USER")
+        http.authorizeHttpRequests().antMatchers(HttpMethod.DELETE, "/dashboard/admin/**").hasRole("ADMIN")
+                .and().httpBasic()
+                .and().cors().disable()
+                .csrf().disable();
+        http.authorizeHttpRequests().antMatchers(HttpMethod.DELETE, "/dashboard/user/**").hasAnyRole("ADMIN", "USER")
+                .and().httpBasic()
+                .and().cors().disable()
+                .csrf().disable();
+        http.authorizeHttpRequests().antMatchers(HttpMethod.DELETE, "/user_dashboard/**").hasRole("ADMIN")
+                .and().httpBasic()
+                .and().cors().disable()
+                .csrf().disable();
+        http.authorizeHttpRequests().antMatchers(HttpMethod.GET, "/user_dashboard").hasRole("ADMIN")
+                .and().httpBasic()
+                .and().cors().disable()
+                .csrf().disable();
+        http.authorizeHttpRequests().antMatchers(HttpMethod.POST, "/user_dashboard").hasAnyRole("ADMIN", "USER")
                 .and().httpBasic()
                 .and().cors().disable()
                 .csrf().disable();

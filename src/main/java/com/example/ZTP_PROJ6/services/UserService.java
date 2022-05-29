@@ -27,10 +27,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List<User> addUser(String username, String password) {
+    public User addUser(String username, String password) {
         if(userRepository.existsByLogin(username) == false) {
-            userRepository.save(new User(User.idCreator(), username, password, Role.USER));
-            return userRepository.findAll();
+            User user = new User(User.idCreator(), username, password, Role.USER);
+            userRepository.save(user);
+            return user;
         }
         throw new ForbiddenException("User with this login alredy exists!");
     }

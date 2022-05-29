@@ -25,10 +25,10 @@ public class DashboardController {
     RecipeRepository recipeRepository;
 
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Recipe> getAllRecipes() {return dashboardService.getAllRecipes(); }
 
-    @GetMapping("/all")
+    @GetMapping("/user")
     public List<Recipe> getAllUserRecipes(){
         return dashboardService.getAllUserRecipes();
     }
@@ -39,7 +39,7 @@ public class DashboardController {
         return dashboardService.addRecipe(request.getName(), request.getDescription(), request.getIngredients(), request.getLevel(), request.getPhoto_url());
     }
 
-    @RequestMapping (value = "/{recipeId}", method = RequestMethod.DELETE)
+    @RequestMapping (value = "admin/{recipeId}", method = RequestMethod.DELETE)
     public List<Recipe> deleteRecipe(@PathVariable String recipeId) throws NotFoundException {
         return dashboardService.deleteRecipeById(recipeId);
     }
