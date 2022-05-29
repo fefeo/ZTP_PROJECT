@@ -8,7 +8,7 @@ public class RecipeRequest {
     private Integer level;
     private String photo_url;
 
-    public RecipeRequest(String name, String description, String ingredients, Integer level, String url) {
+    public RecipeRequest(String name, String description, String ingredients, Integer level, String photo_url) {
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;

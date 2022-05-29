@@ -71,11 +71,9 @@ public class DashboardService {
     public Photo createPhoto(String photo_url) {
         System.out.println(photo_url);
         if (photo_url != "") {
-            System.out.println("ELLLLLLLLO");
             Photo photo = new Photo(Photo.idCreator(), photo_url);
             return photo;
         } else {
-            System.out.println("ELOOOOOOOOOO");
             return null;
         }
     }
