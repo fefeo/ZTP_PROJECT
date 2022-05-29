@@ -20,14 +20,11 @@ public class ApplicationStarter {
 		SpringApplication.run(ApplicationStarter.class, args);
 		System.out.println("ApplicationStarter has started");
 	}
-//	@Bean
-//	CommandLineRunner commandLineRunner(RecipeRepository recipeRepository, UserRepository userRepository) {
-//		return args -> {
-//			String auth = "admin";
-//			User user = userRepository.findAllByLogin(auth);
-//			Recipe pizza = new Recipe(Recipe.idCreator(), "SPA", "Salami", "salami, cheese", 4, user );
-//			recipeRepository.save(pizza);
-//
-//		};
-//	}
+	@Bean
+	CommandLineRunner commandLineRunner(RecipeRepository recipeRepository, UserRepository userRepository) {
+		return args -> {
+			userRepository.save( new User(User.idCreator(), "admin", "admin123", Role.ADMIN));
+
+		};
+	}
 }

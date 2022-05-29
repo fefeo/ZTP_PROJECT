@@ -41,6 +41,8 @@ public class Recipe {
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
 
+
+
     public Recipe() {
 
     }

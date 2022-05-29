@@ -42,27 +42,7 @@ public class User {
         this.role = role;
     }
 
-    public User() {
-
-    }
-
-    //    public User(String login, String pass) {
-//        this.login = login;
-//        this.pass = pass;
-//        this.role = Role.USER;
-//    }
-//    public User(String login, String pass, Role role) {
-//        this.login = login;
-//        this.pass = pass;
-//        this.role = role;
-//    }
-//    public User(String id, String login, String pass, Role role) {
-//        this.id = id;
-//        this.login = login;
-//        this.pass = pass;
-//        this.role = role;
-//    }
-
+    public User() { }
 
     public String getId() { return id; }
 
