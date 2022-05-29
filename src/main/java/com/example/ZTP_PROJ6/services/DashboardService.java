@@ -53,7 +53,7 @@ public class DashboardService {
             Recipe recipe = recipeRepository.getById(id);
             String auth = SecurityContextHolder.getContext().getAuthentication().getName();
             User user = userRepository.findAllByLogin(auth);
-            System.out.println(recipe.getUser());
+          //  System.out.println(recipe.getUser());
             System.out.println(user.getId());
             System.out.println(id);
             if(recipe.getUser().getId().equals(user.getId())) {

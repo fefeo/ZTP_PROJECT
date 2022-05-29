@@ -1,6 +1,7 @@
 package com.example.ZTP_PROJ6.controllers;
 
 
+import com.example.ZTP_PROJ6.beans.Recipe;
 import com.example.ZTP_PROJ6.beans.User;
 import com.example.ZTP_PROJ6.exceptions.NotFoundException;
 import com.example.ZTP_PROJ6.repositorys.RecipeRepository;
@@ -41,5 +42,9 @@ public class UserDashboardController {
     @RequestMapping (value = "/{userId}", method = RequestMethod.DELETE)
     public List<User> deleteUser(@PathVariable String userId) throws NotFoundException {
         return userService.deleteUserById(userId);
+    }
+    @RequestMapping (value = "setNull/{userId}", method = RequestMethod.PUT)
+    public List<Recipe> setNull(@PathVariable String userId) throws NotFoundException {
+        return userService.setNull(userId);
     }
 }

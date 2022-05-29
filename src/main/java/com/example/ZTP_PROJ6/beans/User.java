@@ -33,9 +33,7 @@ public class User {
             columnDefinition = "text"
     )
     private  Role role;
-//    @OneToMany(targetEntity = Recipe.class, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "ur_fk", referencedColumnName = "id")
-//    private List<Recipe> recipes;
+
 
     public User(String id, String login, String pass, Role role) {
         this.id = id;

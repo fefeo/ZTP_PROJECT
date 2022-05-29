@@ -1,5 +1,7 @@
 package com.example.ZTP_PROJ6.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -35,8 +37,8 @@ public class Recipe {
     )
     private Integer level;
 
-    @ManyToOne(cascade={CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name="user_id")
+    @ManyToOne(cascade= CascadeType.PERSIST)//{CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.REMOVE})
+    @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
 
     public Recipe() {
